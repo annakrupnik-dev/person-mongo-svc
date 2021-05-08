@@ -1,1 +1,3 @@
-# person-mongo-svc
+# Person-mongo service
+
+**_**by Anna Krupnik**_**
