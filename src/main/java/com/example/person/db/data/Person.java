@@ -27,8 +27,7 @@ public class Person {
         this.weight = weight;
     }
 
-    @Id
-    private Integer id;
+    private Integer _id;
 
     @NotBlank(message = "Name cannot be null")
     @Size(max = 100)

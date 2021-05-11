@@ -7,6 +7,7 @@ import com.example.person.exception.ResourceNotFoundException;
 import com.example.person.service.PersonService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 public class PersonServiceImpl implements PersonService {
 
+    @Autowired
     private PersonRepository personRepository;
 
     @Override

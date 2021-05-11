@@ -19,9 +19,6 @@ public class Address {
         this.zipcode = zipcode;
     }
 
-    @Id
-    private Integer id;
-
     private String street;
 
     private String city;

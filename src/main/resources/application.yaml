@@ -1,3 +1,4 @@
-environment: 'dev'
-
+environment: dev
 mongoEnvironment: ${environment}
+server:
+  port: 9090

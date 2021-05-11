@@ -9,5 +9,4 @@ import java.util.Optional;
 
 public interface PersonRepository extends MongoRepository<Person, Integer> {
     List<Person> findByName (String name);
-    Optional<Person> findByIdAndAddressId(Integer id, Integer addressId);
 }

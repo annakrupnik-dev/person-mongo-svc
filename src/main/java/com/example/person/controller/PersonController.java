@@ -8,6 +8,7 @@ import com.example.person.service.PersonService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -26,9 +27,9 @@ import java.util.Map;
 @RequestMapping("/persons")
 @Slf4j
 @NoArgsConstructor
-@AllArgsConstructor
 public class PersonController {
 
+    @Autowired
     private PersonService personService;
 
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
