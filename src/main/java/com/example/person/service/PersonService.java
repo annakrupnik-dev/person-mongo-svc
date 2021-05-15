@@ -6,8 +6,8 @@ import com.example.person.db.data.PersonDataWrapper;
 
 public interface PersonService {
     PersonDataWrapper getAllPersons();
-    Person getPersonById(Integer personId);
-    Person updatePerson(Integer personId, Person inputData);
+    Person getPersonById(String personId);
+    Person updatePerson(String personId, Person inputData);
     Person createPerson(Person person);
-    boolean deletePerson(Integer personId);
+    boolean deletePerson(String personId);
 }

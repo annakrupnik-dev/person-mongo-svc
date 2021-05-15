@@ -38,7 +38,7 @@ public class PersonController {
     }
 
     @GetMapping(value = "/{personId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Person getPersonById(@PathVariable (value = "personId") Integer personId) {
+    public Person getPersonById(@PathVariable (value = "personId") String personId) {
         return personService.getPersonById(personId);
     }
 
@@ -48,13 +48,13 @@ public class PersonController {
     }
 
     @PutMapping(value = "/{personId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Person updatePerson(@PathVariable (value = "personId") Integer personId,
+    public Person updatePerson(@PathVariable (value = "personId") String personId,
                                @Valid @RequestBody Person inputData) {
         return personService.updatePerson(personId,inputData);
     }
 
     @DeleteMapping("/{personId}")
-    public boolean deletePerson(@PathVariable (value = "personId") Integer personId) {
+    public boolean deletePerson(@PathVariable (value = "personId") String personId) {
         return personService.deletePerson(personId);
     }
 

@@ -1,9 +1,11 @@
 package com.example.person.db.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.validation.constraints.NotNull;
 
@@ -18,6 +20,9 @@ public class Address {
         this.state = state;
         this.zipcode = zipcode;
     }
+    @Id
+    @Field("_id")
+    private String id;
 
     private String street;
 

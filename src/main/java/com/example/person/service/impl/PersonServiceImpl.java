@@ -31,13 +31,13 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person getPersonById(Integer personId) {
+    public Person getPersonById(String personId) {
         return personRepository.findById(personId)
                 .orElseThrow(() -> new ResourceNotFoundException("PersonId " + personId + "not found"));
     }
 
     @Override
-    public Person updatePerson(Integer personId, Person inputData) {
+    public Person updatePerson(String personId, Person inputData) {
 
         return personRepository.findById(personId).map(person -> {
             person.setName(inputData.getName());
@@ -55,7 +55,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public boolean deletePerson(Integer personId) {
+    public boolean deletePerson(String personId) {
         return personRepository.findById(personId).map(person -> {
             personRepository.delete(person);
             return true;

@@ -39,7 +39,7 @@ public class PersonControllerTest {
     @Test
     public void getPersonById()  {
 
-        String url ="/persons/100";
+        String url ="/persons/609fca7d37ff6e53914213c5";
         String body = testUtil.executeGetRequest(url);
         Assert.assertNotNull(body);
 
@@ -53,7 +53,7 @@ public class PersonControllerTest {
     @Test
     public void createPersonWithNotValidArgs()  {
 
-        String url ="/addresses/6/persons";
+        String url ="/persons";
 
         Person person = new Person("",null, null,180,70);
         boolean thrown = false;
@@ -76,9 +76,10 @@ public class PersonControllerTest {
 
         String url ="/persons";
         //Person person = new Person("Moshe",28, Gender.MALE.name(),178,68);
-        //Person person = new Person("Pit",32, Gender.MALE.name(),185,80);
-        Address address =new Address("Orange st.","TA","ISRAEL",7777);
-        Person person = new Person("Kristina",40, Gender.FEMALE.name(),169,59);
+        Person person = new Person("Pit",32, Gender.MALE.name(),185,80);
+        //Address address =new Address("Orange st.","TA","ISRAEL",7777);
+        Address address =new Address("Red st.","Haifa","ISRAEL",8888);
+        //Person person = new Person("Kristina",40, Gender.FEMALE.name(),169,59);
         person.setAddress(address);
         String body = testUtil.executePostRequest(url,person);
 
