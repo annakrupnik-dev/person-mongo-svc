@@ -12,6 +12,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -21,7 +22,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
-@Document
+@Document(collection = "persons")
 @Data
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @NoArgsConstructor
@@ -35,9 +36,11 @@ public class Person {
         this.weight = weight;
     }
 
+    @Transient
+    public static final String SEQUENCE_NAME = "person_sequence";
+
     @Id
-    @Field("_id")
-    private String id;
+    private long personId;
 
     @NotBlank(message = "Name cannot be null")
     @Size(max = 100)

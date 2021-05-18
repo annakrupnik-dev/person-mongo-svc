@@ -5,7 +5,6 @@ import com.example.person.db.data.Person;
 import com.example.person.db.data.PersonDataWrapper;
 import com.example.person.exception.ResourceNotFoundException;
 import com.example.person.service.PersonService;
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +37,8 @@ public class PersonController {
     }
 
     @GetMapping(value = "/{personId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Person getPersonById(@PathVariable (value = "personId") String personId) {
-        return personService.getPersonById(personId);
+    public Person getPersonById(@PathVariable (value = "personId") Long personId) {
+        return personService.getPersonByPersonId(personId);
     }
 
     @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
@@ -48,13 +47,13 @@ public class PersonController {
     }
 
     @PutMapping(value = "/{personId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Person updatePerson(@PathVariable (value = "personId") String personId,
+    public Person updatePerson(@PathVariable (value = "personId") Long personId,
                                @Valid @RequestBody Person inputData) {
         return personService.updatePerson(personId,inputData);
     }
 
     @DeleteMapping("/{personId}")
-    public boolean deletePerson(@PathVariable (value = "personId") String personId) {
+    public boolean deletePerson(@PathVariable (value = "personId") Long personId) {
         return personService.deletePerson(personId);
     }
 

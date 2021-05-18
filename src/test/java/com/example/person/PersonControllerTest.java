@@ -39,7 +39,7 @@ public class PersonControllerTest {
     @Test
     public void getPersonById()  {
 
-        String url ="/persons/609fca7d37ff6e53914213c5";
+        String url ="/persons/3";
         String body = testUtil.executeGetRequest(url);
         Assert.assertNotNull(body);
 
@@ -76,10 +76,11 @@ public class PersonControllerTest {
 
         String url ="/persons";
         //Person person = new Person("Moshe",28, Gender.MALE.name(),178,68);
-        Person person = new Person("Pit",32, Gender.MALE.name(),185,80);
-        //Address address =new Address("Orange st.","TA","ISRAEL",7777);
-        Address address =new Address("Red st.","Haifa","ISRAEL",8888);
-        //Person person = new Person("Kristina",40, Gender.FEMALE.name(),169,59);
+        //Person person = new Person("Maya",28, Gender.FEMALE.name(),175,60);
+        //Person person = new Person("Pit",32, Gender.MALE.name(),185,80);
+        Address address =new Address("Orange st.","TA","ISRAEL",7777);
+        //Address address =new Address("Red st.","Haifa","ISRAEL",8888);
+        Person person = new Person("Kristina",40, Gender.FEMALE.name(),169,59);
         person.setAddress(address);
         String body = testUtil.executePostRequest(url,person);
 
@@ -93,7 +94,7 @@ public class PersonControllerTest {
     @Test
     public void updatePerson()  {
 
-        String url ="/addresses/5/persons/18";
+        String url ="/persons/3";
         Person person = new Person("Dany",7, Gender.MALE.name(),95,20);
 
         String body = testUtil.executePutRequest(url,person);
@@ -108,7 +109,7 @@ public class PersonControllerTest {
     @Test
     public void updatePersonNotValidData()  {
 
-        String url ="/addresses/50/persons/18";
+        String url ="/persons/18";
         Person person = new Person("Dany",7, Gender.MALE.name(),95,19);
 
         boolean thrown = false;
@@ -129,7 +130,7 @@ public class PersonControllerTest {
     @Test
     public void deletePerson()  {
 
-        String url ="/addresses/6/persons/17";
+        String url ="/persons/17";
 
         String body = testUtil.executeDeleteRequest(url);
 
